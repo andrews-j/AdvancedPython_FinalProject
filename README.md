@@ -1,5 +1,5 @@
 ### **Eucalyptus And Fire Behavior**
-*GEOG-313 Advanced Geoanalytics with Python at Clark University MSGIS* 
+*GEOG-313 Advanced Geoanalytics with Python at Clark University MSGIS*   
 *Jason Andrews & Clio Bate*
 
 ### About this Project
@@ -48,7 +48,7 @@ matplotlib.pyplot
 
 2.**Fire_Area_TS(index, data_type, clean= True):**  this function takes three args, "index", data_type(RBG or NBR) and clean (if True, empty pixels will be forwardfilled from images from previous dates) anbd will return a frame by frame of monthly NBR and RGB for a fire bbox specified in the index. This is helpfulf for troubleshooting unexpected NBR mean values in graphs from plot_fire_by_index or for the creation of GIFs.  
 Example:   
-![Fire_Area_TS(7,'NBR',True)](https://github.com/cvbate/geog313_finalproject/blob/25e5adec061983f7d14ca93135d9d6e404798973/example_images/Fire_area_TS_example.png)  
+![Fire_Area_TS(7,'NBR',True)](https://github.com/cvbate/geog313_finalproject/blob/d32a3f0d578e5762b55de41c25ba5f79d234dac6/example_images/Fire_area_TS_example.png)  
 
 3.**Fire_Area_GIF(index):** This function takes an argument "index" creates a GIF of each fire through time.  
 Example:  

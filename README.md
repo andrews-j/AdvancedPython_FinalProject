@@ -46,7 +46,7 @@ from 3 months before alarm date until 24 months after¶
 
 ### Functions
 > plot_fire_by_index(index): this function takes an arg "index", the index of the desired fire, and will return the veg vs fire area NBR plot for the specified fire  
-![Monthly Mean NBR example plot, fire 12](example_images/Monthly Mean NBR example plot, fire 12.png)
+![Monthly Mean NBR example plot, fire 12](https://github.com/cvbate/geog313_finalproject/blob/0b3630a9e7088dbe54a4a9a255ace2725c3b131e/example_images/Monthly%20Mean%20NBR%20example%20plot%2C%20fire%2012.png)
 
 
 ### Data Sources

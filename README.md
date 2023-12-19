@@ -1,6 +1,6 @@
-### Eucalyptus And Fire Behavior
-GEOG-313 Advanced Geoanalytics with Python at Clark University MSGIS
-Jason Andrews & Clio Bate
+### **Eucalyptus And Fire Behavior**
+*GEOG-313 Advanced Geoanalytics with Python at Clark University MSGIS* 
+*Jason Andrews & Clio Bate*
 
 ### About this Project
 This notebook was developed in Microsofts Planetary Computer Hub and uses its API to collect relevent Landsat imagery.
@@ -43,23 +43,23 @@ pyproj = v3.6.0
 matplotlib.pyplot  
 
 #### Functions
-**plot_fire_by_index(index):** this function takes an arg "index", the index of the desired fire, and will return the monthly veg vs fire area NBR plot for the specified fire. Example: 
+1.**plot_fire_by_index(index):** this function takes an arg "index", the index of the desired fire, and will return the monthly veg vs fire area NBR plot for the specified fire. Example: 
 ![plot_fire_by_index(12)](https://github.com/cvbate/geog313_finalproject/blob/25e5adec061983f7d14ca93135d9d6e404798973/example_images/plot_fire_by_index_example.png)  
 
-**Fire_Area_TS(index, data_type, clean= True):**  this function takes three args, "index", data_type(RBG or NBR) and clean (if True, empty pixels will be forwardfilled from images from previous dates) anbd will return a frame by frame of monthly NBR and RGB for a fire bbox specified in the index. This is helpfulf for troubleshooting unexpected NBR mean values in graphs from plot_fire_by_index or for the creation of GIFs.  
+2.**Fire_Area_TS(index, data_type, clean= True):**  this function takes three args, "index", data_type(RBG or NBR) and clean (if True, empty pixels will be forwardfilled from images from previous dates) anbd will return a frame by frame of monthly NBR and RGB for a fire bbox specified in the index. This is helpfulf for troubleshooting unexpected NBR mean values in graphs from plot_fire_by_index or for the creation of GIFs.  
 Example:   
 ![Fire_Area_TS(7,'NBR',True)](https://github.com/cvbate/geog313_finalproject/blob/25e5adec061983f7d14ca93135d9d6e404798973/example_images/Fire_area_TS_example.png)  
 
-**Fire_Area_GIF(index):** This function takes an argument "index" creates a GIF of each fire through time.  
+3.**Fire_Area_GIF(index):** This function takes an argument "index" creates a GIF of each fire through time.  
 Example:  
 ![Fire_Area_GIF(index))]() 
 
 #### Data Sources
 [California Fire Permimeters - California Department of Forestry and Fire Protection hoested CAL FIRE AGOL](https://gis.data.ca.gov/maps/e3802d2abf8741a187e73a9db49d68fe)  
-CalFire published a vector feature class of fire perimeters, dating back to the early 20th century. For this study we have extracted every fire that burned eucalyptus since 2002.
+> CalFire published a vector feature class of fire perimeters, dating back to the early 20th century. For this study we have extracted every fire that burned eucalyptus since 2002.
   
 [Landcover and Fine Scale Veg](https://pacificvegmap.org/data-downloads/)  
-CalFire contracted with a GIS consultant to create detailed vegetation maps from eight counties in the Bay Area. Eucalyptus is one of the vegetation categories. We downloaded data for each of the 8 counties in CA and then filtered to include only vegetation from 2002 onwards.
+> CalFire contracted with a GIS consultant to create detailed vegetation maps from eight counties in the Bay Area. Eucalyptus is one of the vegetation categories. We downloaded data for each of the 8 counties in CA and then filtered to include only vegetation from 2002 onwards.
 
 
 #### Furtherwork/Limitations

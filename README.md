@@ -3,7 +3,7 @@
 *Jason Andrews & Clio Bate*
 
 ### About this Project
-This notebook was developed in Microsofts Planetary Computer Hub and uses its API to collect relevent Landsat imagery.
+This notebook was developed in Microsoft Planetary Computer Hub and queries an API hosted by Microsoft to collect Landsat imagery stored as a STAC.
 We used a time series analysis to investigate how Eucalyptus, a large tree native to Australia behaves during and after fire events in California. Research suggests that eucalyptus, a large tree native to Australia, benefits from frequent, intense fires. Fires burn at a higher temperature when they reach eucalyptus stands because the oils in the wood and leaves lead to crown ignition. Moreover, stands of eucalyptus accumulate higher and denser levels of combustible fuels than surrounding vegetation, particularly in coastal California.
 Being a fire adapted tree, research suggests that eucalyptus will resprout more quickly than other vegetation after high intensity burns, giving it an advantage in post fire succession. 
 
@@ -59,13 +59,23 @@ Example:
 > CalFire published a vector feature class of fire perimeters, dating back to the early 20th century. For this study we have extracted every fire that burned eucalyptus since 2002.
   
 [Landcover and Fine Scale Veg](https://pacificvegmap.org/data-downloads/)  
-> CalFire contracted with a GIS consultant to create detailed vegetation maps from eight counties in the Bay Area. Eucalyptus is one of the vegetation categories. We downloaded data for each of the 8 counties in CA and then filtered to include only vegetation from 2002 onwards.
+> CalFire contracted with a GIS consultant to create detailed vegetation maps from eight counties in the Bay Area. Eucalyptus is one of the vegetation categories. We downloaded data for each of the 8 counties in CA and then filtered to include only eucalyptus within the perimeters of fires that occured from 2002 onwards.
 
 
-#### Furtherwork/Limitations
-
+#### Limitations/ Future Work
+While the notebooks are functional, and create the desired outputs, there are several improvements that could be made, and a couple bugs to be resolved.
+Limitations:
+1. In functions that plot monthly average NBR, fire [9] will not plot. I believe that this is because the date of the fire was less than two years ago, so asking for Landsat imagery in that standard +24 month timeframe will thrown an error. However, an attempt to fix this by defining end_time to current_date has not yet worked.
+   current_date = pd.to_datetime(datetime.datetime.now()) - pd.DateOffset(months=1)
+   end_time = min(end_time, current_date)
+2. When I run the Time Series and GIF creation functions in the same notebook as the monthly NBR plotting it throws off some variable, and I can not return to the the plotting functions without them throwing an error. This is why we've seperated the functions into two notebooks. This is somewhat annoying though as it requires running code to produce the xarray for each.
+3. I'd like to add fire/euc outlines to the GIFs. I can not find any documentation that even suggests this is possible. I've done it in GEE. I've tried a couple different approaches to no success so far. 
+Future Work:
+1. Much of the preprocessing of our vector data was done in ArcGIS Pro-- filtering datasets by year, and spatial relations to eachother. I'd like to develope a pipeline to do the entire thing in Python.
+2. Application with another dataset-- Try feeding different datasets into this pipeline. One idea would be to get data on hardwood vs conifer vs grassland vs shrub landcover for a set of fires, and compare NBR between these areas. 
+3. Fix 3rd plot function that compages average NBR for all fire/Euc polygons. 
 
 ##### Special thanks to our Professor Hamed Alemohammed[^1] and our TA, Aiyin Zhang[^2]!
   
-[^1]: [Director, Center for Geospatial Analyitics Associate Prof., Graduate School of Geography; Clark University](https://github.com/HamedAlemo)
+[^1]: [Director, Center for Geospatial Analytics Associate Prof., Graduate School of Geography; Clark University](https://github.com/HamedAlemo)
 [^2]: [PhD Cantidate, Graduate School of Geography](https://github.com/zay1996)

@@ -4,8 +4,9 @@
 
 ### About this Project
 Final deliverables:  
-> name of notebook 1
-> name of notebook 2  
+1. name of notebook 1
+2. name of notebook 2    
+
 These notebooks were developed in Microsoft Planetary Computer Hub and queries an API hosted by Microsoft to collect Landsat imagery stored as a STAC (Spatial Temporal Asset Catalog).
 We used a time series analysis to investigate how Eucalyptus, a large tree native to Australia behaves during and after fire events in California. Research suggests that eucalyptus, a large tree native to Australia, benefits from frequent, intense fires. Fires burn at a higher temperature when they reach eucalyptus stands because the oils in the wood and leaves lead to crown ignition. Moreover, stands of eucalyptus accumulate higher and denser levels of combustible fuels than surrounding vegetation, particularly in coastal California.
 Being a fire adapted tree, research suggests that eucalyptus will resprout more quickly than other vegetation after high intensity burns, giving it an advantage in post fire succession. 

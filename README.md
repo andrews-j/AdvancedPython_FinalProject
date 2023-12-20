@@ -77,8 +77,8 @@ Example:
 ![Fire_Area_TS(7,'NBR',True)](https://github.com/cvbate/geog313_finalproject/blob/d32a3f0d578e5762b55de41c25ba5f79d234dac6/example_images/Fire_area_TS_example.png)  
 
 3.**Fire_Area_GIF(index):** This function takes an argument "index" creates a GIF of each fire through time.  
-Example:  
-![Fire_Area_GIF(index))]() 
+Example: Tubbs fire 2 months before ignition   
+![Fire_Area_GIF(12))](https://github.com/cvbate/geog313_finalproject/blob/3f09235d6136524a02e8c7348b597652a44c2ad5/example_images/Fire_Area_GIF_example_tubbs.jpeg) 
 
 #### Data Sources
 [California Fire Permimeters - California Department of Forestry and Fire Protection hoested CAL FIRE AGOL](https://gis.data.ca.gov/maps/e3802d2abf8741a187e73a9db49d68fe)  

@@ -13,11 +13,25 @@ Can we show these phenomena with real world data analysis?
 
 
 ### Methodology  - verrry rough- just copied and pasted - will fix later
-1. The first will produce an NBR comparison plot for each fire
-2. second takes an index input and produces a plot for the specified fire
-3. The third produces an NBR average for the combined area of all fires and all veg
-from 3 months before alarm date until 24 months after
-
+#### Data Preperation 
+1. The first step in this notebook is accessing the fire perimeter polygons and eucalyptus area polygons, which are read in with gpd.read_file as goepandas Geodataframes. These are then filtered to only include fires with greater than 5 acres of eucalyptus.
+2. To make sure everything lines up correctly we set the crs for the fires and eucalyptus to 4326, convert each item in each geodataframe to a geojson dictionary, and map them together on a folium map to visualize the areas that burned, and the eucalyptus within these burn zones.
+#### xarray Operations
+3. Next is the creation of our xarray image stack. The first step here is to filter landsat images to the entire extent and temporal window of our study area: 8 counties in the California Bay Area, and 2002-2023. We use the intersect function with a dictionary representing the convex hull uniary union of the 8 counties in our catalog.search function. 
+4. We then pull out the bands needed for our analysis-- NIR, SWIR, R, G,B-- and run them through a bitmask filter to keep ony 'good' pixels.
+5. The xarray stack is then further divided into NBR and RGB, and then each of these is temporally compressed into monthly median images.
+6. The last step before the data is ready for plotting is to convert the fire and eucalyptus areas go crs 32610, so they match with the xarray stacsk of Landsat imagery.
+#### Plotting
+7. We clip the NBR xarray to the bounds of each fire and the eucalyptus extent of that fire. Then we mask the part of each fire that is eucalyptus. Then we do a temporal clip to 3 months before the start of each fire, until 24 months afterwards. An average monthly NBR for each area is calculated over this time frame and these are plotted on the same graph. This function exists as a standalone where an individual fire can be called by index, or a loop, that produces a graph for each fire in the set.
+#### Time Series
+##### For ease of use the Time Series and GIF creation functions are in a diffferent .ipynb notebook
+8. Time Series and GIFs require a bounding box for each fire. These are created using the .envelope geopandas function and added (as a list of coordinates) as a nex column in the geodataframe Fires32610.
+9. The function Fire_Area_TS takes 3 arguments: index, data_type, and clean=True. Index refers to which fire out of the set you'd like to create a time series for. Data type is either "NBR" or "RGB", and clean defaults to True, if set to false, the script will skip the forward fill function that fills in missing pixels for each frame in the series by taking pixels from the previous image.
+10. The Fire_Area_TS function converts the geometry of each item (fire perimeter) in Fires32610 into a geojson dictionary that it can then use to clip the monthly compisite xarray stack.
+11. The xarray is also clipped temporaly to the 27 month window around each fire, which is derived by feeding the 'ALARM_DATE' for each fire through pd.DateOffset operators.
+12. The result of the function is a frame by frame image set of a specified fire, which can help troubleshoot issues with NBR data or GIF creation.
+13. #### GIFs
+14. The GIF creation functions do much of the same things as the Time Series functions, clipping bboxes for each fire in the same way. They take two of the same 3 arguments -- index and data_type-- but the third is FPS, which is frames per second. GIFs will automatically be forward filled/cleaned.
 
 ### How to use this notebook
 This notebook was developed in Microsofts Planetary Computer Hub and uses its API to collect relevent Landsat imagery.

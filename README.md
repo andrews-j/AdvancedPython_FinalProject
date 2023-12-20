@@ -3,7 +3,10 @@
 *Jason Andrews & Clio Bate*
 
 ### About this Project
-This notebook was developed in Microsoft Planetary Computer Hub and queries an API hosted by Microsoft to collect Landsat imagery stored as a STAC (Spatial Temporal Asset Catalog).
+Final deliverables:  
+> name of notebook 1
+> name of notebook 2  
+These notebooks were developed in Microsoft Planetary Computer Hub and queries an API hosted by Microsoft to collect Landsat imagery stored as a STAC (Spatial Temporal Asset Catalog).
 We used a time series analysis to investigate how Eucalyptus, a large tree native to Australia behaves during and after fire events in California. Research suggests that eucalyptus, a large tree native to Australia, benefits from frequent, intense fires. Fires burn at a higher temperature when they reach eucalyptus stands because the oils in the wood and leaves lead to crown ignition. Moreover, stands of eucalyptus accumulate higher and denser levels of combustible fuels than surrounding vegetation, particularly in coastal California.
 Being a fire adapted tree, research suggests that eucalyptus will resprout more quickly than other vegetation after high intensity burns, giving it an advantage in post fire succession. 
 
@@ -12,8 +15,8 @@ Does Eucalyptus recover and resprout faster from fires than the surrounding vege
 Can we show these phenomena with real world data analysis?
 
 
-### Methodology  - verrry rough- just copied and pasted - will fix later
-#### Data Preperation 
+### Methodology  
+#### Data Preperation
 1. The first step in this notebook is accessing the fire perimeter polygons and eucalyptus area polygons, which are read in with gpd.read_file as goepandas Geodataframes. These are then filtered to only include fires with greater than 5 acres of eucalyptus.
 2. To make sure everything lines up correctly we set the crs for the fires and eucalyptus to 4326, convert each item in each geodataframe to a geojson dictionary, and map them together on a folium map to visualize the areas that burned, and the eucalyptus within these burn zones.
 #### xarray Operations
@@ -35,6 +38,14 @@ Can we show these phenomena with real world data analysis?
 
 ### How to use this notebook
 This notebook was developed in Microsofts Planetary Computer Hub and uses its API to collect relevent Landsat imagery.
+You can clone this repository to your local machine by copying and pasting the following code into your terminal/command prompt  
+'''
+git init
+'''
+followed by:  
+'''
+git clone https://github.com/cvbate/geog313_finalproject.git
+'''
 #### Environment
 shapely = v2.0.1    
 datetime  

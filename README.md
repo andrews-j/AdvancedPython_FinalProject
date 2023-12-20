@@ -40,13 +40,13 @@ Can we show these phenomena with real world data analysis?
 ### How to use this notebook
 This notebook was developed in Microsofts Planetary Computer Hub and uses its API to collect relevent Landsat imagery.
 You can clone this repository to your local machine by copying and pasting the following code into your terminal/command prompt  
-'''
+```
 git init
-'''
+```
 followed by:  
-'''
+```
 git clone https://github.com/cvbate/geog313_finalproject.git
-'''
+```
 #### Environment
 shapely = v2.0.1    
 datetime  
